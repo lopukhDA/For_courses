@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="Demo.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationForm.cs" />
     <Compile Include="RegistrationFormConfig.cs" />

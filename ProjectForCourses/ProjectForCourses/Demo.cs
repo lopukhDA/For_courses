@@ -16,11 +16,11 @@ namespace ProjectForCourses
         private RegistrationFormManager _regFormManager = new RegistrationFormManager();
         private RegistrationFormConfig _config = new RegistrationFormConfig()
         {
-            Username = RandomString(10),
-            Email = RandomString(8) + "@test.com",
-            Password = RandomString(10),
-            Name = RandomString(6),
-            LastName = RandomString(6),
+            Username = Helper.RandomString(10),
+            Email = Helper.RandomString(8) + "@test.com",
+            Password = Helper.RandomString(10),
+            Name = Helper.RandomString(6),
+            LastName = Helper.RandomString(6),
             Position = "Test",
             Company = "EPAM",
             Agreement = true,
@@ -32,6 +32,8 @@ namespace ProjectForCourses
         {
             _regFormManager.FillForm(_driver, _config);
             _regFormManager.Submit(_driver);
+            var url = _driver.Url;
+            Assert.AreEqual("", url, "Url does not match");
         }
     }
 }
