@@ -1,6 +1,4 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +9,7 @@ namespace ProjectForCourses
 {
     [Parallelizable(ParallelScope.Self)]
     [Description("Demo test for course")]
-    public class Demo : Base
+    public class DevByTest : Base
     {
         private RegistrationFormManager _regFormManager = new RegistrationFormManager();
         private RegistrationFormConfig _config = new RegistrationFormConfig()
@@ -26,14 +24,14 @@ namespace ProjectForCourses
             Agreement = true,
         };
 
-
         [Test]
         public void Test()
         {
+            _driver.Navigate().GoToUrl("https://dev.by/registration");
             _regFormManager.FillForm(_driver, _config);
             _regFormManager.Submit(_driver);
             var url = _driver.Url;
-            Assert.AreEqual("", url, "Url does not match");
+            Assert.AreEqual("https://dev.by/", url, "Url does not match");
         }
     }
 }
